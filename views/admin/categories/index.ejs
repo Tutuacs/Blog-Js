@@ -1,0 +1,59 @@
+<%- include('../../partials/header.ejs'); %>
+    <%- include('../../partials/navbar.ejs') %>
+
+        <body>
+
+            <div class="container">
+                <hr>
+                <div>
+                    <h2>Categorias</h2>
+                    <br>
+                    <a class="btn btn-outline-success" href="/admin/categories/new">Criar nova categoria</a>
+                </div>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Slug</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach(categories=> { %>
+                            <tr>
+                                <th>
+                                    <%= categories.id %>
+                                </th>
+                                <th>
+                                    <%= categories.title %>
+                                </th>
+                                <th>
+                                    <%= categories.slug %>
+                                </th>
+                                <th>
+                                    <a href="/admin/categories/edit/<%=categories.id%>" class="btn btn-warning">Editar</a>
+                                    <form method="POST" action="/categories/delete" style="display: inline;"
+                                        onsubmit="confirmDell(event,this)">
+                                        <input type="hidden" name="id" value="<%= categories.id%>">
+                                        <button class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </th>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+        </body>
+        <%- include('../../partials/footer.ejs'); %>
+            <script>
+                function confirmDell(ev,form) {
+                    ev.preventDefault();
+                    var conf = confirm("Tem certeza que deseja deletar este dado?");
+                    if(conf){
+                        form.submit();
+                    }
+                }
+            </script>

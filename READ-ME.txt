@@ -1,0 +1,20 @@
+
+                    ======================================== 
+                    == Configure seu banco de dados antes ==
+                    ========================================
+
+    Crie um novo banco de dados com o nome "projeto-2", no arquivo: data/database/database.js
+ir na linha "3" e configurar o nome do seu usuario do banco e sua senha, o projeto foi feito
+na porta 8080, pode ser mudado para a entrada de sua escolha na linha 106 ("8080"), para acessar 
+as opcoes de administrador do blog, primeiro voce precisa entrar na porta de entrada escolhida:
+(localhost:8080) e depois colar a URL: (/admin/users/create) para criar um usuario com uma
+senha que nao pode ser vista no seu banco de dados, cuidado para nao perde-la.
+
+    Apos criar um usuario, no menu principal entrar em loguin para acessar os paineis administrativos 
+de criacao de conteudo do blog.
+
+(a porta de criacao de usuario pode ser bloqueada para pessoas sem loguin, para isso na pasta 
+(admin/UserController.js), copiar a linha "20" sem as duas barras (//) do inicio e colar no lugar 
+da linha 21, desta maneira para criar um usuario voce precisa estar logado em alguma conta ja feita)
+
+Arthur Azevedo da silva/Tutuacs - 18/03/2023

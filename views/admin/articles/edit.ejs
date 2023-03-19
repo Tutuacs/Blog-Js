@@ -1,0 +1,50 @@
+<%- include('../../partials/header.ejs'); %>
+<%- include('../../partials/navbar.ejs') %>
+
+    <body>
+        <div class="container">
+            <br>
+            <div class="card px-3 mx-3">
+                <div class="card-title mt-3">
+                    <h2>Editar artigo</h2>
+                </div>
+                <div class="card-body mb-3">
+                    <form method="POST" action="/articles/update" >
+                        <input type="hidden" value="<%= article.id %>" name="id">
+                        <input name="title" class="form-control" type="text" placeholder="<%= article.title %>">
+                        <br>
+                        <textarea id="article" class="form-control" name="body" cols="30" rows="10" placeholder="<%= article.body %>"></textarea>
+                        <br>
+                        <p class="">Categoria</p>
+                        <select name="category" class="form-control">
+                            <% categories.forEach((category)=>{ %>
+                                <% if(category.id == article.categoryID){ %>
+                                <option value="<%= category.id %>" selected><%= category.title %></option>
+                           <% }else{ %>
+                                <option value="<%= category.id %>"><%= category.title %></option>
+                        <%}})%>
+                        </select>
+                        <br>
+                        <button class="btn btn-success form-control">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+<%- include('../../partials/footer.ejs'); %>
+<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+
+    tinymce.init({
+        selector: "#article",
+        language: 'pt_BR',
+        Plugins: [
+            "advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons"
+        ],
+        
+    init_instance_callback: () => {
+        tinymce.activeEditor.setContent('<%- article.body %>')
+    }
+    })
+
+</script>
