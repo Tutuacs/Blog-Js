@@ -19,4 +19,4 @@ de criacao de conteudo do blog.
 (admin/UserController.js), copiar a linha "20" sem as duas barras (//) do inicio e colar no lugar 
 da linha 21, desta maneira para criar um usuario voce precisa estar logado em alguma conta ja feita)
 
-Arthur Azevedo da silva/Tutuacs - 19/03/2023
+Arthur Azevedo da Silva/Tutuacs - 19/03/2023
