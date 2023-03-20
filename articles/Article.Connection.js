@@ -21,8 +21,8 @@ const Article = connect.define('articles',{
     }
 })
 
-Category.hasMany(Article);//Relacionamento 1Categoria para VariosArtigos
-Article.belongsTo(Category);//um artigo pertence a uma categoria
+//Category.hasMany(Article);//Relacionamento 1Categoria para VariosArtigos
+//Article.belongsTo(Category);//um artigo pertence a uma categoria
 
 //relacionamento 1Artigo  para  1Categoria
 
